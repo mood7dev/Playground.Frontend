@@ -2,56 +2,63 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>티켓 정보</title>
+    <title>사용자 동의 폼</title>
   </head>
   <body>
-    <div id="ticket-list"></div>
+    <h2>회원가입</h2>
+    <form id="signupForm">
+      <label> 이름: <input type="text" id="name" /> </label>
+      <br /><br />
+
+      <label>
+        <input type="checkbox" id="useInfoCheck" />
+        [필수] 사용자 정보 활용 동의
+      </label>
+      <br />
+
+      <label>
+        <input type="checkbox" id="useEmailCheck" />
+        [선택] 이메일 수신 동의
+      </label>
+      <br /><br />
+
+      <button type="submit">가입하기</button>
+    </form>
 
     <script>
-      const ticket_1 = {
-        title: "팬텀 10주년 기념 공연",
-        img: "https://a.jpg",
-        url: "https://a.html",
-        rank: 1,
-        place: "대구",
-        day: "05/07",
-      };
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault(); // 기본 폼 제출 막기
 
-      const ticket_2 = {
-        title: "뮤지컬 <메디슨 카운티의 다리>",
-        img: "https://b.jpg",
-        url: "https://b.html",
-        rank: 2,
-        place: "서울",
-        day: "05/09",
-      };
+          const name = document.getElementById("name").value.trim();
+          const useInfoCheck = document.getElementById("useInfoCheck").checked;
+          const useEmailCheck =
+            document.getElementById("useEmailCheck").checked;
 
-      const ticket_3 = {
-        title: "뮤지컬 <라이카>",
-        img: "https://c.jpg",
-        url: "https://c.html",
-        rank: 3,
-        place: "제주",
-        day: "05/04",
-      };
+          const errors = [];
 
-      const ticketInfoArr = [ticket_1, ticket_2, ticket_3];
+          if (!name) {
+            errors.push("이름을 입력하세요.");
+          }
 
-      const ticketListDiv = document.getElementById("ticket-list");
+          if (!useInfoCheck) {
+            errors.push("사용자 정보 동의를 체크해주세요. (필수)");
+          }
 
-      ticketInfoArr.forEach((ticket) => {
-        const ticketDiv = document.createElement("div");
-        ticketDiv.innerHTML = `
-        <h3>${ticket.title}</h3>
-        <img src="${ticket.img}" alt="${ticket.title}" />
-        <p>순위: ${ticket.rank}</p>
-        <p>장소: ${ticket.place}</p>
-        <p>날짜: ${ticket.day}</p>
-        <a href="${ticket.url}" target="_blank">자세히 보기</a>
-      `;
-        ticketListDiv.appendChild(ticketDiv);
-      });
+          if (!useEmailCheck) {
+            errors.push(
+              "이메일 수신 동의는 선택사항입니다. 원하시면 체크해주세요."
+            );
+          }
+
+          if (errors.length > 0) {
+            alert(errors.join("\n"));
+          } else {
+            alert("가입이 완료되었습니다! 저희 서비스를 자유롭게 활용하세요.");
+            // 실제 서비스에서는 여기서 서버로 데이터 전송 처리 등 추가
+          }
+        });
     </script>
   </body>
 </html>

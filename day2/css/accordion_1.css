@@ -1,4 +1,5 @@
-html. body {
+html,
+body {
   font-family: Helvetica, Arial, sans-serif;
   margin: 0;
 }
@@ -9,17 +10,27 @@ html. body {
 }
 
 .panel-faq-title {
-  /* font-weight: bold;*/
+  /* font-weight: bold; */
   color: #00eaea;
   cursor: pointer;
 }
 
 .panel-faq-answer {
-  /* padding: 15px */
-  /* display: none; */
-  /* border: 10px solid red;*/
-  height: 0px;
+  max-height: 0;
   overflow: hidden;
+  transition: max-height 0.6s ease, background-color 0.6s ease,
+    padding 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease;
+  background-color: transparent;
+  padding: 0 15px;
+  box-shadow: none;
+  opacity: 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.panel-faq-answer.active {
+  padding: 15px;
+  opacity: 1;
 }
 
 #btn-all-close {
@@ -36,7 +47,4 @@ html. body {
   background-color: yellow;
   color: #000;
   transition: all 0.35s;
-}
-
-.active {
 }

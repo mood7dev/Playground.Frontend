@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>textarea태그</title>
+  </head>
+  <body>
+    <h1>textareatag.html</h1>
+    <form action="#">
+      <div>
+        <div><label for="msg">메시지를 입력하세요.</label></div>
+        <div><textarea id="msg" name="msg">안녕하세요</textarea></div>
+      </div>
+
+      <div>
+        <input type="submit" value="전송" />
+      </div>
+    </form>
+    <script>
+      const $msg = document.querySelector("#msg");
+      alert($msg.value);
+      $msg.value = "반가워";
+    </script>
+  </body>
+</html>

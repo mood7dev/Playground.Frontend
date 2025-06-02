@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기타 인풋 타입</title>
+  </head>
+  <body>
+    <h1>기타 인풋 타입</h1>
+
+    <form action="#"></form>
+    <div>
+      <label>one-file: <input type="file" /></label>
+    </div>
+
+    <div>
+      <label
+        >only-image-file: <input type="file" accept="image/*" multiple
+      /></label>
+    </div>
+
+    <div>
+      <label>
+        xls-image-file:
+        <input type="file" accept=".xls,.xlsx,image/*" multiple />
+      </label>
+    </div>
+
+    <div>
+      <label><input type="hidden" name="name" value="홍길동" /></label>
+    </div>
+
+    <div>
+      <label>
+        M: 010-<input
+          type="tel"
+          name="phone"
+          pattern="[0-9]{4}-[0-9]{4}"
+          placeholder="1234-5678"
+          required
+        />
+      </label>
+    </div>
+
+    <div>
+      <label>
+        email:
+        <input type="email" name="email" required value="ddd@ddd.com" />
+      </label>
+    </div>
+
+    <div>
+      <input type="submit" value="전송" />
+    </div>
+  </body>
+</html>

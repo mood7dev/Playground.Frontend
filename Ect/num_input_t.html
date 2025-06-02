@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>숫자 관련 인풋 타입</title>
+  </head>
+
+  <body>
+    <h1>숫자 관련 인풋 타입</h1>
+
+    <div style="display: flex; align-items: center">
+      <span>number: </span>
+      <input type="number" style="margin-left: 5px; width: 60px" />
+    </div>
+
+    <div>
+      <label
+        >range: <input type="range" name="price" min="20" max="80" step="5" />
+        <span id="range_display"></span>
+      </label>
+    </div>
+
+    <div>
+      <label><input type="date" name="birth_date" /></label>
+    </div>
+
+    <div>
+      <label>
+        datetime: <input type="datetime-local" name="birth_datetime" />
+      </label>
+    </div>
+
+    <div>
+      <label>time: <input type="time" name="birth_time" /></label>
+    </div>
+
+    <div>
+      <label>week: <input type="week" name="birth_week" /></label>
+    </div>
+
+    <div><input type="submit" value="확인" /></div>
+
+    <script>
+      const $range = document.querySelector('input[type="range"]');
+      const $rangeDisplay = document.querySelector("#range_display");
+      const $date = document.querySelector(
+        'input[type="date"][name="birth_date"]'
+      );
+
+      const today = new Date();
+      const year = today.getFullYear();
+      const mon = String(today.getMonth() + 1).padStart(2, "0");
+      const day = String(today.getDate()).padStart(2, "0");
+      const nowDate = `${year}-${mon}-${day}`;
+      $date.value = nowDate;
+      $date.setAttribute("min", nowDate);
+
+      const $datetime = document.querySelector('input[type="datetime-local"]');
+      $datetime.value = "2025-10-10T14:12:12";
+
+      console.log("nowDate:", nowDate);
+
+      $rangeDisplay.innerText = $range.value;
+
+      $range.addEventListener("mousemove", function (e) {
+        $rangeDisplay.innerText = e.target.value;
+      });
+    </script>
+  </body>
+</html>

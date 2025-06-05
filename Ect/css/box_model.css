@@ -1,0 +1,18 @@
+.container {
+  background-color: #fff;
+}
+
+.container span {
+  background-color: #0011ff;
+  display: inline-block;
+}
+
+.container div {
+  background-color: coral;
+  display: block;
+}
+
+.container span,
+div {
+  padding: 20px;
+}

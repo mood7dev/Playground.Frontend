@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10; /* 화면의 앞뒤 순서(겹칠 때 어떤 게 위에 보일지)를 결정 단, static이 아니어야 함*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  color: #fff;
+  background-color: grey;
+}
+
+header h1 {
+  font-size: 1.2rem;
+}
+
+main {
+  position: relative; /* <main> 요소는 자식 요소들의 position: absolute 기준 */
+  display: flex; /* 자식들을 가로(기본 방향)로 나열 */
+  justify-content: space-between; /* 첫번째 : 맨 왼쪽/ 마지막 : 맨 오른쪽/ 나머지: 균등하게 분배 */
+  align-items: start;
+  height: 300vh;
+  background-color: rgb(174, 198, 207);
+  margin-top: 90px;
+}
+
+.one {
+  width: 60%;
+  height: 100vh;
+}
+
+.one > img {
+  display: block;
+  width: 100%;
+}
+
+.two {
+  position: sticky; /* 스크롤할 때 특정 위치에 붙어서 고정되는 효과 */
+  top: 0;
+  width: 40%;
+  height: 50vh;
+  padding: 70px 0 0 12px;
+  overflow: auto;
+  text-align: center;
+  background-color: rgb(179, 158, 181);
+}
+
+.three {
+  position: sticky;
+  top: 0;
+  height: 200px;
+  background-color: rgb(253, 253, 150);
+  padding-top: 100px;
+}

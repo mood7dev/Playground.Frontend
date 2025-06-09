@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="flex" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+        justify-content: 정방향 컨트롤
+        align-items: 크로스방향 컨트롤
+
+        기본 방향: row (왼쪽-오른쪽, 가로 방향)
+        flex-direction: 방향 수정 (row: 가로 방향, column: 세로방향)
+        */
+
+      .container {
+        background-color: gray;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1em;
+        padding: 25px;
+      }
+
+      .container > div {
+        background-color: steelblue;
+        color: #fff;
+        padding: 10px;
+        min-width: 48px;
+        min-height: 48px;
+        border: 1px solid #fff;
+      }
+
+      .container > div:first-child {
+        background-color: rgb(230, 64, 64);
+        flex-basis: auto;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>flex study</h1>
+    <div class="container">
+      <div>이 아이템을 조절해 보세요!</div>
+      <div>1</div>
+      <div style="order: -1">2</div>
+      <div>3</div>
+    </div>
+  </body>
+</html>

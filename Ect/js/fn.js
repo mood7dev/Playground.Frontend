@@ -1,11 +1,3 @@
-//fn.js
-//함수
-
-//자바 메소드를 구성하는 4가지 요소 : 리턴타입, 메소드명, 파라미터, 구현부
-
-//자바스크립트 함수/메소드를 구성하는 3가지 요소 : 메소드명, 파라미터, 구현부
-
-//js에서 함수 호출은 함수 주소값 소괄호이다.
 function sum(n1, n2) {
   console.log("sum메소드 호출!!");
   console.log(`${n1}+${n2} = ${n1 + n2}`);
@@ -17,3 +9,21 @@ const copySum = sum;
 copySum(1, 2);
 
 console.log("sum === copySum", sum === copySum);
+
+// 소괄호 생략 가능, 파라미터가 하나일 때
+const abs = (val) => {
+  return val < 0 ? -val : val;
+};
+console.log("abs:", abs(-10));
+console.log("abs:", abs(11));
+
+// 중괄호 생략 가능, 코드가 한 줄일 때
+const abs2 = (val) => console.log("(2)val:", val < 0 ? -val : val);
+abs2(-11);
+abs2(3);
+
+// return 생략 가능, 코드가 한 줄일 때 (중괄호도 없어야 한다.)
+const abs3 = (val) => (val < 0 ? -val : val);
+
+console.log("abs3:", abs3(-10));
+console.log("abs3:", abs3(11));

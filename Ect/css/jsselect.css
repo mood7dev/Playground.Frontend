@@ -1,0 +1,36 @@
+body {
+  padding: 16px 32px;
+}
+
+section {
+  margin: 12px 0;
+  padding: 50px;
+  background-color: bisque;
+  border-radius: 12px;
+}
+
+section.plant {
+  background-color: lightgreen;
+}
+
+li.soldout {
+  position: relative; /* 추가 */
+}
+
+.soldout::before {
+  position: absolute;
+  bottom: 0px;
+  left: -68px;
+  padding: 3px;
+  font-size: 0.5em;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(242, 84, 84);
+  border-radius: 6px;
+  content: "sold out";
+  padding-top: 2px;
+}
+
+.hidden {
+  display: none;
+}

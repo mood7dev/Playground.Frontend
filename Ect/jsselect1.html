@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/jsselect.css" />
+    <title>쇼핑리스트</title>
+  </head>
+  <body>
+    <h1>장보기 목록</h1>
+    <section class="plant">
+      <h2 id="vegetable_title"><i>채소</i></h2>
+      <ul>
+        <li>당근</li>
+        <li>오이</li>
+        <li>상추</li>
+        <li>가지</li>
+        <li class="hidden">양파</li>
+      </ul>
+    </section>
+    <section id="sweets" class="plant">
+      <h2>과일</h2>
+      <ul>
+        <li>사과</li>
+        <li>딸기</li>
+        <li>포도</li>
+      </ul>
+    </section>
+    <section>
+      <h2>고기</h2>
+      <ul>
+        <li class="soldout">돼지고기</li>
+        <li>소고기</li>
+        <li class="soldout">닭고기</li>
+      </ul>
+    </section>
+    <script>
+      const $onion =
+        document.querySelector("section.plant ul").lastElementChild;
+      $onion.classList.remove("hidden");
+      $onion.classList.add("orgnic");
+
+      $onion.textContent += " (유기농)";
+
+      $onion.style.fontSize = "2em";
+
+      $onion.style.backgroundColor = "blue";
+      $onion.style.listStyleType = "none";
+    </script>
+  </body>
+</html>

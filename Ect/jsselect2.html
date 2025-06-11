@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/jsselect.css" />
+    <title>웹사이트 연습</title>
+  </head>
+  <body>
+    <h1>jesdit2.html</h1>
+    <a href="https://www.naver/com" target="_blank">웹 사이트 바로가기</a>
+   <br>
+   <input type="text" name="message" value="Hello World!">
+   <br>
+   <input type="checkbox" id="checkbox" name="toggle" checked>
+   <label for="checkbox">체크박스</label>
+    </section>
+    <script>
+
+const $hyperLink = document.querySelector('a');
+console.log('$hyperLink.href', $hyperLink.href);
+console.log('$hyperLink.getAttribute("href")', $hyperLink.getAttribute("href"));
+
+$hyperLink.setAttribute('href', 'https://www.yalco.kr')
+
+const $message = document.querySelector('input[name="message"]');
+console.log($message);
+$message.setAttribute('type', 'text');
+console.log($message);
+
+console.log('$message.getAttribute("value") =', $message.getAttribute("value"));
+$message.value = '헬로우 월드!';
+
+$checkbox = document.querySelector('#checkbox');
+console.log('$checkbox.checked:', $checkbox.checked);
+
+    </script>
+  </body>
+</html>

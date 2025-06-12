@@ -37,8 +37,8 @@ const aboutCards = [
   },
 ];
 
-const $aboutDiv = document.querySelector("#about .about");
-
+const $aboutDiv = document.querySelector("#about > div.about");
+/*
 aboutCards.forEach((card, index) => {
   const $card = document.createElement("div");
   $card.classList.add("about__card");
@@ -62,4 +62,41 @@ aboutCards.forEach((card, index) => {
   $card.appendChild($text);
 
   $aboutDiv.appendChild($card);
+});
+
+*/
+
+aboutCards.forEach((item, idx) => {
+  let desc = "";
+  if (item.descs.length > 0) {
+    desc = item.descs[0];
+    for (let i = 1; i < item.descs.length; i++) {
+      desc += `<br>${item.descs[i]}`;
+    }
+  }
+  const $div = document.createElement("div");
+  $div.classList.add("about__card");
+  $div.innerHTML = `
+  <img class="about__icon" src="${item.img}" alt="">
+   <h2 class="about__title _${idx + 1}">${item.title}</h2>
+  <p class="about__text">${desc}</p>
+  `;
+
+  $aboutDiv.appendChild($div);
+});
+
+//curriculum
+const $currLiList = document.querySelectorAll(
+  "#curriculum .curriculum__list > li"
+);
+const $currProgBar = document.querySelector(
+  "#curriculum .curriculum__progress .bar"
+);
+
+$currLiList.forEach((item, idx) => {
+  item.addEventListener(
+    "mouseenter",
+    () => ($currProgBar.style.width = `${200 * idx}px`)
+  );
+  item.addEventListener("mouseleave", () => ($currProgBar.style.width = "0px"));
 });

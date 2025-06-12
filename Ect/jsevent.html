@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="KO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 16px 32px;
+        font-size: 1.2em;
+      }
+      button,
+      input[type="text"] {
+        padding: 0.5em 1em;
+      }
+      #click_position {
+        display: inline-block;
+        margin: 24px 0;
+        width: 400px;
+        height: 240px;
+        background-color: lightblue;
+        line-height: 240px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ABC's EVENT!</h1>
+    <button id="my_button">이벤트를 부여하세요</button>
+    <br />
+    <div id="click_position">클릭전</div>
+    <br />
+    <input type="text" id="my_input" />
+
+    <script>
+      const $myButton = document.getElementById("my_button");
+
+      function click_Btn() {
+        console.log("버튼클릭!!!");
+      }
+
+      // 이벤트 이름은 문자열, 함수는 참조로 전달
+      $myButton.addEventListener("click", click_Btn);
+
+      //익명함수
+      $myButton.addEventListener("mouseenter", function () {
+        console.log("진입");
+      });
+      //화살표 함수 (원래 익명함수)
+      $myButton.addEventListener("mouseleave", () => {
+        console.log("이탈");
+      });
+      //클릭 전 div 선택
+      const $clickPosition = document.getElementById("click_position");
+      $clickPosition.addEventListener("click", (e) => {
+        const text = `x: ${e.clientX}, y: ${e.clientY}`;
+        e.target.textContent = text;
+      });
+
+      //input[type="text"] 선택
+      const $myInput = document.querySelector("#my_input");
+      $myInput.addEventListener("focus", (e) => {
+        e.target.setAttribute("placeHolder", "포커스된 상태");
+      });
+
+      $myInput.addEventListener("blur", (e) => {
+        e.target.setAttribute("placeHolder", "");
+      });
+      const $view = document.querySelector("#view");
+      $myInput.addEventListener("keyup", (e) => {
+        $view.textContent = e.target.value;
+      });
+    </script>
+  </body>
+</html>

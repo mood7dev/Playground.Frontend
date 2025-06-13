@@ -100,3 +100,33 @@ $currLiList.forEach((item, idx) => {
   );
   item.addEventListener("mouseleave", () => ($currProgBar.style.width = "0px"));
 });
+
+const $contactTabs = document.querySelectorAll(
+  '#contact input[name="contact"]'
+);
+
+const $contactSlideCon = document.querySelector("#contact .contact__slide-con");
+
+$contactTabs.forEach((item, idx) => {
+  const marginLeft = ["0", "-100vw"][idx];
+
+  item.addEventListener("click", () => {
+    $contactSlideCon.style.marginLeft = marginLeft;
+  });
+});
+
+const $menuBtn = document.querySelector(".header__menu-btn");
+const $headerNav = document.querySelector(".header__nav");
+
+const $body = document.querySelector("body");
+
+$menuBtn.addEventListener("click", (e) => {
+  $menuBtn.classList.toggle("on");
+  $headerNav.classList.toggle("active");
+  e.stopPropagation();
+});
+
+document.querySelector("body").addEventListener("click", () => {
+  $menuBtn.classList.remove("on");
+  $headerNav.classList.remove("active");
+});

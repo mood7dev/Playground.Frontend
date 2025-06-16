@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICON EDITOR2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 5PX;
+        }
+
+        td {
+            width: 15px;
+            height: 15px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ICON EDITOR2</h1>
+    <div id="editor"></div>
+    <script>
+        function makeElement(name, attributes) {
+            const node = document.createElement(name);
+            if (attributes) {
+                for (const item in attributes) {
+                    if (attributes.hasOwnProperty(item)) {
+                        node.setAttribute(item, attributes[item]);
+                    }
+                }
+            }
+            return node;
+        }
+
+        function createIconEditor(target, nx, ny) {
+            console.log('createIconEditor 호출!!:', target, nx, ny);
+
+            const $inputColor = makeElement('input', { type: 'color' });
+            target.appendChild($inputColor);
+
+            const $inputButtonClear = makeElement('input', {
+                type: 'button',
+                value: '전체삭제'
+            });
+            $inputButtonClear.addEventListener('click', () => {
+                alert("삭제하시겠습니까?")
+                const tds = $table.querySelectorAll('td');
+                /* for 방법 */
+                for (const $tr of $table.children) {
+                    for (const $td of $tr.children) {
+                        $td.style.backgroundColor = null;
+                    }
+                }
+                /* forEach 방법
+                tds.forEach(td => td.style.backgroundColor = '');
+                */
+            })
+
+            target.appendChild($inputButtonClear);
+
+            const $table = makeElement('table');
+            target.appendChild($table);
+
+            for (let y = 0; y < ny; y++) {
+                const $tr = makeElement('tr');
+                $table.appendChild($tr);
+                for (let x = 0; x < nx; x++) {
+                    const $td = makeElement('td');
+                    $tr.appendChild($td);
+
+                    $td.addEventListener('click', () => {
+                        $td.style.backgroundColor = $inputColor.value;
+                    })
+
+                }
+            }
+        }
+
+
+
+
+        window.addEventListener('load', () => {
+            const target = document.querySelector('#editor');
+            if (target) {
+                createIconEditor(target, 20, 20);
+            }
+        });
+    </script>
+</body>
+
+</html>
